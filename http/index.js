@@ -225,20 +225,6 @@ function sendRequest(options, onOk, onError, opt_data, opt_proxy) {
     });
   });
 
-  // request.on('error', function(e) {
-  //   if (e.code === 'ECONNRESET') {
-  //     setTimeout(function() {
-  //       sendRequest(options, onOk, onError, opt_data, opt_proxy);
-  //     }, 15);
-  //   } else {
-  //     var message = e.message;
-  //     if (e.code) {
-  //       message = e.code + ' ' + message;
-  //     }
-  //     onError(new Error(message));
-  //   }
-  // });
-
   request.on('error', function(e) {
     if (e.code === 'ECONNRESET' || e.code === 'EADDRINUSE') {
         setTimeout(function() {
